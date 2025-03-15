@@ -4,7 +4,7 @@ import renderToDom from '../../utils/renderToDom';
 const addVocabForm = (obj = {}) => {
   clearDom(); // ✅ Clears previous content
 
-  // ✅ Create #form-container if it doesn't exist
+  // Create #form-container if it doesn't exist
   let formContainer = document.querySelector('#form-container');
   if (!formContainer) {
     formContainer = document.createElement('div');

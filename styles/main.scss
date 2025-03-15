@@ -1,10 +1,401 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import "~bootstrap/scss/bootstrap";
 
-
+/* 🌟 General Styles */
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: #121212; 
+  color: #fff; 
   text-align: center;
   margin-top: 100px;
+  font-family: "Poppins", sans-serif;
 }
+
+/* Modern Glassmorphism Navigation */
+#navbar {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px 30px;
+  border-radius: 12px;
+  position: fixed;
+  width: 90%;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar Title Styling */
+.navbar-brand.title {
+  font-size: 26px; /* Larger for emphasis */
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  background: linear-gradient(45deg, #ff007f, #00eaff);
+  background-clip: text; 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Add subtle glow effect */
+.navbar-brand.title:hover {
+  transform: scale(1.1);
+  text-shadow: 0px 0px 8px rgba(255, 0, 127, 0.6), 0px 0px 12px rgba(0, 238, 255, 0.5);
+}
+
+/* Animated Underline */
+.navbar-brand.title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff007f, #00eaff);
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.navbar-brand.title:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Navigation Links */
+#navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0 15px;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  
+  &:hover {
+    color: #ff007f; 
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff007f, #00eaff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Logout Icon */
+.logout {
+  margin: 0 20px;
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Buttons */
+button, .btn {
+  background: linear-gradient(45deg, #ff007f, #00eaff);
+  border: none;
+  padding: 12px 18px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: linear-gradient(45deg, #00eaff, #ff007f);
+    transform: scale(1.05);
+  }
+}
+
+/* Main Container */
+#main-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 100px;
+  align-content: center;
+
+  #add-button,
+  #add-link {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #form-container {
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+    color: white;
+
+    #formModal {
+      color: black;
+    }
+  }
+
+  #store {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+
+    .card {
+      width: 300px;
+      margin: 5px;
+      background: rgba(255, 255, 255, 0.1); 
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .table {
+      margin: 10px;
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+
+/* View Page */
+#view {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+
+  .card {
+    width: 40%;
+    height: 550px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+  }
+
+  .view-card-title {
+    font-size: 50px;
+  }
+
+  .view-card-text,
+  .view-card-text2,
+  .view-card-text3 {
+    font-size: 30px;
+  }
+}
+
+/*  Responsive Design */
+@media (max-width: 768px) {
+  #navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+  #navbar a {
+    margin: 10px 0;
+  }
+}
+
+/* Vocab Form Styles */
+.vocab-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 30px;
+}
+
+.vocab-form {
+  background: rgba(255, 255, 255, 0.1); // Glassmorphism effect
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 25px;
+  width: 50%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/* Form Title */
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Submit Button */
+.btn-submit {
+  background: linear-gradient(45deg, #ff007f, #00eaff);
+  border: none;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(45deg, #00eaff, #ff007f);
+  transform: scale(1.05);
+}
+
+/* Vocabulary Card */
+.vocab-card {
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 20px;
+  width: 350px;
+  margin: 20px auto;
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.vocab-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+}
+
+/* Card Title */
+.card-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  border-bottom: 2px solid rgba(255, 0, 0, 0.7);
+  padding-bottom: 5px;
+}
+
+/* Category */
+.card-text {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #00eaff, #ff007f);
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* Definition Text */
+.card-text2 {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Timestamp */
+.card-text3 {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.vocab-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.view-btn,
+.edit-btn,
+.delete-btn {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  width: 100px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* View Button */
+.view-btn {
+  background: linear-gradient(45deg, #00eaff, #ff007f);
+  color: white;
+}
+
+.view-btn:hover {
+  background: linear-gradient(45deg, #0094a8, #ff007f);
+}
+
+/* Edit Button */
+.edit-btn {
+  background: linear-gradient(45deg, #ffb400, #ff007f);
+  color: white;
+}
+
+.edit-btn:hover {
+  background: linear-gradient(45deg, #cc8600, #ff007f);
+}
+
+/* Delete Button */
+.delete-btn {
+  background: linear-gradient(45deg, #ff4c4c, #ff007f);
+  color: white;
+}
+
+.delete-btn:hover {
+  background: linear-gradient(45deg, #d12828, #ff007f);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .vocab-card {
+    width: 90%;
+  }
+}
+
+
